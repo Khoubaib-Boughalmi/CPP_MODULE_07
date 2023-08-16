@@ -15,6 +15,8 @@ class Array
         Array(const Array& other);
         unsigned int getSize(void) const;
         const Array& operator=(const Array& other);
+        T &operator[](int idx);
+        unsigned int size() const;
         ~Array();
 };
 
