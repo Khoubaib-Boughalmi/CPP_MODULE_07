@@ -2,6 +2,7 @@
 #define ARRAY_H
 
 #include <iostream>
+#include<cstdlib>
 
 template<typename T>
 class Array
@@ -10,13 +11,16 @@ class Array
         unsigned int _n;
         T *arr;
     public:
-        Array();
+        Array(void);
         Array(unsigned int n);
         Array(const Array& other);
         unsigned int getSize(void) const;
         const Array& operator=(const Array& other);
-        T &operator[](int idx);
+        T &operator[](unsigned int idx);
         unsigned int size() const;
+        class OutOfBoundException : public std::exception {
+            char *what() const throw();
+        };
         ~Array();
 };
 
