@@ -17,11 +17,6 @@ template<typename T>
 Array<T>::Array(const Array& other):_n(other.getSize()) {
     if(other.getSize() > 0)
     {
-        // if(this->arr)
-        // {
-        //     delete[] (this->arr);
-        //     this->arr = NULL;
-        // }
         this->arr = new T[other.getSize()];
         for (unsigned int i = 0; i < this->getSize(); i++)
             this->arr[i] = other.arr[i];
@@ -30,7 +25,6 @@ Array<T>::Array(const Array& other):_n(other.getSize()) {
 
 template<typename T>
 const Array<T>& Array<T>::operator=(const Array& other) {
-    std::cout << "hello world" << std::endl;
     this->_n = other.getSize();
     if(this != &other && this->getSize() > 0)
     {

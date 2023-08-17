@@ -11,10 +11,4 @@ void iter(T* array, size_t length, void (*f)(T const &)) {
     }
 }
 
-template<typename T>
-T square(T value)
-{
-    return value * value;  
-}
-
 #endif
