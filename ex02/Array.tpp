@@ -51,7 +51,7 @@ unsigned int Array<T>::getSize() const{
 template<typename T>
 T &Array<T>::operator[](unsigned int idx)
 {
-    if(idx >= this->getSize())
+    if(idx < 0 || idx >= this->getSize())
         throw OutOfBoundException();
     return this->arr[idx];
 }
