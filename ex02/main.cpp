@@ -48,6 +48,21 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
+    std::cout << "hello world \n" ;
     delete [] mirror;//
     return 0;
 }
+
+
+/*
+    alias code="bash /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
+    # Load Homebrew config script
+    source $HOME/.brewconfig.zsh
+
+    alias francinette=/Users/kboughal/francinette/tester.sh
+
+    alias paco=/Users/kboughal/francinette/tester.sh
+    source ~/.42-wizzard.sh
+    zsh ~/.42-wizzard-updater.sh
+*/
