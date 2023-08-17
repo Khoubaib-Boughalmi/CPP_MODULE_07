@@ -19,9 +19,11 @@ class Array
         T &operator[](unsigned int idx);
         unsigned int size() const;
         class OutOfBoundException : public std::exception {
-            char *what() const throw();
+            const char *what() const throw();
         };
         ~Array();
 };
+
+#include "Array.tpp"
 
 #endif

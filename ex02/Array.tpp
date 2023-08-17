@@ -1,4 +1,5 @@
-#include "Array.h"
+#ifndef ARRAY_TPP
+#define ARRAY_TPP
 
 template<typename T>
 Array<T>::Array():_n(0)
@@ -13,40 +14,36 @@ Array<T>::Array(unsigned int n): _n(n)
 }
 
 template<typename T>
-Array<T>::Array(const Array& other) {
+Array<T>::Array(const Array& other):_n(other.getSize()) {
     if(other.getSize() > 0)
     {
-        if(this->arr)
-        {
-            delete[] this->arr;
-            this->arr = NULL;
-        }
+        // if(this->arr)
+        // {
+        //     delete[] (this->arr);
+        //     this->arr = NULL;
+        // }
         this->arr = new T[other.getSize()];
         for (unsigned int i = 0; i < this->getSize(); i++)
-        {
             this->arr[i] = other.arr[i];
-        }
-        this->_n = other.getSize();
     }
 }
 
 template<typename T>
 const Array<T>& Array<T>::operator=(const Array& other) {
+    std::cout << "hello world" << std::endl;
+    this->_n = other.getSize();
     if(this != &other && this->getSize() > 0)
     {
         if(this->arr)
-            delete[] this->arr;
+            delete[] (this->arr);
         this->arr = new T[other.getSize()];
         for (unsigned int i = 0; i < this->getSize(); i++)
-        {
             this->arr[i] = other.arr[i];
-        }
-        this->_n = other.getSize();
     }
     else if (this != &other && this->getSize() == 0)
     {
         if(this->arr)
-            delete[] this->arr;
+            delete[] (this->arr);
         this->arr = NULL;
     }
     return (*this);
@@ -72,7 +69,7 @@ unsigned int Array<T>::size() const
 }
 
 template<typename T>
-char *Array<T>::OutOfBoundException::what() const throw() {
+const char *Array<T>::OutOfBoundException::what() const throw() {
     return "Error: OutOfBoundException";
 }
 
@@ -80,5 +77,7 @@ template<typename T>
 Array<T>::~Array()
 {
     if(this->arr && this->getSize() > 0)
-        delete[] this->arr;
+        delete[] (this->arr);
 }
+
+#endif
